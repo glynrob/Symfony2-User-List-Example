@@ -1,0 +1,35 @@
+<?php
+// src/Users/Bundle/ListBundle/Entity/Users.php
+
+namespace Users\Bundle\ListBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="users")
+ */
+class Users
+{
+	/**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+	protected $id;
+	
+	/**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+	/**
+     * @ORM\Column(type="string", length=200)
+     */
+    protected $email;
+
+	/**
+     * @ORM\Column(type="string", length=60)
+     */
+    protected $phone;
+}

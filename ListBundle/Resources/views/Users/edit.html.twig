@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Symfony 2 Example</title>
+<link href="/bundles/userslist/css/main.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div id="container">
+	<h1>Edit User</h1>
+	<div id="body">
+		<p><a href="../users">Click here</a> to back to the Users list</p>
+		<form action="" method="post" {{ form_enctype(form) }}>
+			{{form_widget(form)}}
+			<input type="submit" />
+		</form>
+	</div>
+</div>
+</body>
+</html>

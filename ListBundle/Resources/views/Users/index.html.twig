@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Symfony 2 Example</title>
+<link href="/bundles/userslist/css/main.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div id="container">
+	<h1>User list page</h1>
+	<div id="body">
+		<p><a href="/">Click here</a> to back to the Homepage</p>
+		<p><a href="users/add">ADD NEW USER</a></p>
+		<p>All users in the users table using: <br />
+		<strong>$repository = $this->getDoctrine()->getRepository('UsersListBundle:Users');<br />
+		$users = $repository->findAll();</strong></p>
+		{% if users is not empty %}
+			<table cellpadding="4">
+				<tr>
+					<td><strong>ID</strong></td>
+					<td><strong>Name</strong></td>
+					<td><strong>Email</strong></td>
+					<td><strong>Phone</strong></td>
+				</tr>
+				{% for user in users %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.name }}</td>
+						<td>{{ user.email }}</td>
+						<td>{{ user.phone }}</td>
+						<td><a href="users/edit/{{ user.id }}">Edit</a></td>
+						<td><a href="users/delete/{{ user.id }}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>No users in the database</p>
+		{% endif %}
+		<p>Get ID 1 in the example table using: <br />
+		<strong>$user = $this->getDoctrine()->getRepository('UsersListBundle:Users')->find(1);</strong></p>
+	</div>
+</div>
+</body>
+</html>
